@@ -1,0 +1,102 @@
+# フルリエル キャスト管理（Pages CMS）
+# 管理画面: https://app.pagescms.org/
+media:
+  - name: cast_images
+    label: キャスト画像
+    input: assets/casts
+    output: /assets/casts
+    rename: random
+    extensions: [png, jpg, jpeg, webp]
+  - name: cast_voices
+    label: ご挨拶ボイス
+    input: assets/voices
+    output: /assets/voices
+    rename: random
+    extensions: [mp3, ogg, wav, m4a]
+content:
+  - name: casts
+    label: キャスト名簿
+    type: collection
+    path: content/casts
+    format: json
+    filename:
+      template: "{fields.id}.json"
+      field: false
+    view:
+      primary: name
+      fields: [name, visible, maid, staff]
+      search: [name, reading]
+      sort: [reading, name]
+      default:
+        sort: reading
+        order: asc
+    operations:
+      create: true
+      rename: false
+      delete: true
+    fields:
+      - name: id
+        label: 内部ID（自動生成・変更不要）
+        type: uuid
+        options:
+          editable: false
+      - name: name
+        label: お名前
+        type: string
+        required: true
+      - name: reading
+        label: よみがな（五十音順用）
+        type: string
+        required: true
+      - name: maid
+        label: メイドとして掲載
+        type: boolean
+        default: false
+      - name: staff
+        label: 黒服として掲載
+        type: boolean
+        default: false
+      - name: visible
+        label: 公式サイトに公開する（オフにすると非表示）
+        type: boolean
+        default: false
+      - name: message
+        label: 自己紹介
+        type: text
+        description: 好きなもの・ひとこと等をまとめて書いてください
+      - name: image
+        label: お写真・立ち絵
+        type: image
+        options:
+          media: cast_images
+          extensions: [png, jpg, jpeg, webp]
+      - name: voice
+        label: ご挨拶ボイス（MP3推奨）
+        type: file
+        options:
+          media: cast_voices
+          extensions: [mp3, ogg, wav, m4a]
+      - name: x
+        label: XアカウントURL（任意）
+        type: string
+      - name: roman
+        label: ローマ字表記（任意）
+        type: string
+      - name: color
+        label: カードの背景色
+        type: select
+        default: blue
+        options:
+          values:
+            - name: blue
+              label: ブルー
+            - name: ice
+              label: アイスブルー
+            - name: pink
+              label: ピンク
+            - name: mint
+              label: ミント
+            - name: lilac
+              label: ライラック
+            - name: peach
+              label: ピーチ
