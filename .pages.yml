@@ -100,3 +100,22 @@ content:
               label: ライラック
             - name: peach
               label: ピーチ
+              
+  - name: website
+    label: トップページ・YouTube設定
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: youtube_enabled
+        label: YouTubeのCMを表示する
+        type: boolean
+        default: false
+      - name: youtube_title
+        label: YouTube動画の見出し
+        type: string
+        default: フルリエル公式CM
+      - name: youtube_url
+        label: YouTube動画のURL
+        type: string
+
