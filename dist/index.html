@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#f7f9fc" name="theme-color"/>
+<meta content="女声メイドカフェ フルリエル。こんなにかわいいのに、ぼくたちみんな男の子です。メイド図鑑、ボイス、営業案内はこちら。" name="description"/>
+<title>女声メイドカフェ フルリエル | 公式サイト試作</title>
+<link href="styles.css" rel="stylesheet"/>
+<script defer="" src="casts.js"></script>
+<script defer="" src="app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動する</a>
+<div class="site-shell">
+<header class="site-header" id="top">
+<div class="header-inner wrap">
+<a aria-label="フルリエル ホーム" class="brand" href="#top">
+<span aria-hidden="true" class="brand-mark"><span>♛</span></span>
+<span class="brand-text"><span class="brand-small">女声メイドカフェ</span><strong>フルリエル</strong><span class="brand-en">MAID CAFE FLEURIEL</span></span>
+</a>
+<nav aria-label="メインナビゲーション" class="main-nav">
+<a href="#about">フルリエルについて</a>
+<a href="#casts">メイド図鑑</a>
+<a href="#guide">ご来館案内</a>
+</nav>
+
+</div>
+</header>
+<main id="main">
+<section aria-labelledby="hero-title" class="hero">
+<div class="hero-glow hero-glow-left"></div>
+<div class="hero-glow hero-glow-right"></div>
+<span aria-hidden="true" class="hero-deco hero-deco-one">❧</span>
+<span aria-hidden="true" class="hero-deco hero-deco-two">✦</span>
+<div class="hero-inner wrap">
+<div class="hero-copy">
+<p aria-hidden="true" class="eyebrow"><span class="eyebrow-line"></span> MAID CAFE FLEURIEL <span class="eyebrow-line"></span></p>
+<h1 class="hero-main-heading" id="hero-title">ようこそ、フルリエルへ</h1>
+<p class="hero-catch"><strong>こんなにかわいいのに、<br class="desktop-break"/>ぼくたちみんな男の子です。</strong></p>
+<div class="hero-description">
+<p>可憐な声と、個性あふれるおもてなし。</p>
+<p>あなたにとっての「お気に入り」な時間に出会いを。</p>
+</div>
+<div class="hero-actions">
+<a class="button button-primary" href="#casts"><span aria-hidden="true">✧</span> メイド図鑑を見る <span aria-hidden="true">↗</span></a>
+<a class="button button-secondary" href="#guide">はじめてのご主人様へ <span aria-hidden="true">→</span></a>
+</div>
+<div class="opening-pill"><span aria-hidden="true" class="opening-icon">♧</span><span><small>OPENING HOURS</small><strong>隔週土曜日 22:00〜 営業</strong></span></div>
+<p class="opening-notice">最新の開催情報は公式のお知らせをご確認ください。</p>
+</div>
+<div class="hero-art">
+<div class="art-halo"></div>
+<div class="poster-frame">
+<span aria-hidden="true" class="frame-top">✦　❦　♛　❦　✦</span>
+<img alt="フルリエルの公式告知イメージ。青と金の装飾とメイドたちが描かれた華やかなポスター" src="assets/fleuriel-poster.webp"/>
+<span aria-hidden="true" class="frame-bottom">FLEURIEL · YOUR LITTLE PARADISE</span>
+</div>
+<div class="art-badge"><span>✿</span><small>WELCOME TO</small><strong>FLEURIEL</strong></div>
+<span aria-hidden="true" class="art-flower art-flower-a">✿</span>
+<span aria-hidden="true" class="art-flower art-flower-b">✾</span>
+</div>
+</div>
+<div aria-hidden="true" class="hero-wave"></div>
+</section>
+<section aria-labelledby="about-title" class="introduction" id="about">
+<div class="wrap">
+<div class="center-heading"><p class="section-kicker">OUR STORY</p><div class="heading-deco">✦ <span>❦</span> ✦</div><h2 id="about-title">フルリエルとは</h2><p>声も、ときめきも、出会いも。ここだけの特別なひととき。</p></div>
+<div class="feature-grid">
+<article class="feature"><div class="feature-number">01</div><div class="feature-icon" aria-hidden="true">♬</div><h3>かわいい声の魔法</h3><p>男の子たちが女声でお給仕する、ちょっと不思議で、とびきりかわいいメイドカフェ。</p></article>
+<article class="feature"><div class="feature-number">02</div><div class="feature-icon" aria-hidden="true">❀</div><h3>十人十色のおもてなし</h3><p>声も個性もみんな違うから。自分だけのお気に入りのメイドを見つけてください。</p></article>
+<article class="feature"><div class="feature-number">03</div><div class="feature-icon" aria-hidden="true">♕</div><h3>心ほどけるお屋敷</h3><p>はじめての方も大歓迎。気負わず、会話と出会いを楽しめるお屋敷を目指しています。</p></article>
+</div>
+</div>
+</section>
+<section aria-labelledby="casts-title" class="cast-section" id="casts">
+<div class="wrap">
+<div class="cast-section-head">
+<div><p class="section-kicker">MEET OUR CAST</p><h2 id="casts-title">フルリエル メイド図鑑</h2><p class="cast-section-subtitle">気になるメイドを選んで、プロフィールや声にふれてみてください。</p></div>
+
+</div>
+<div class="cast-toolbar">
+<div aria-label="キャストカテゴリ" class="segmented" role="group">
+<button aria-pressed="true" class="segment is-active" data-category="maid" type="button">メイド <span id="maid-count"></span></button>
+<button aria-pressed="false" class="segment" data-category="staff" type="button">黒服 <span id="staff-count"></span></button>
+</div>
+<div class="filter-tools">
+<label class="search-field"><span aria-hidden="true">⌕</span><span class="sr-only">キャスト名で検索</span><input autocomplete="off" id="cast-search" placeholder="お名前で探す" type="search"/></label>
+<button aria-pressed="false" class="favorites-filter" id="favorites-filter" type="button">♡ お気に入りだけ</button>
+</div>
+</div>
+<div aria-live="polite" class="cast-grid" id="cast-grid"></div>
+<p class="cast-helper"><span aria-hidden="true">✧</span> このサイトは試作品です。立ち絵・紹介文・ボイスはキャスト本人の許可を得て掲載する想定です。</p>
+</div>
+</section>
+<section aria-labelledby="voice-title" class="voice-section">
+<div class="wrap voice-layout">
+<div aria-hidden="true" class="voice-crest"><span>♫</span></div>
+<div><p class="section-kicker">A VOICE JUST FOR YOU</p><h2 id="voice-title">声からはじまる、出会い。</h2><p>プロフィールを開くと、キャストのご挨拶ボイスを聴けるようになります。<br/>お気に入りの声を見つけることも、フルリエルの楽しみ方のひとつ。</p></div>
+<a class="button button-outline-light" href="#casts">キャストを探す <span aria-hidden="true">↗</span></a>
+</div>
+</section>
+<section aria-labelledby="guide-title" class="guide-section" id="guide">
+<div class="wrap guide-inner">
+<div class="guide-intro"><p class="section-kicker">VISIT OUR MANSION</p><h2 id="guide-title">はじめてのご主人様・お嬢様へ</h2><p>フルリエルは、VRChatで開催する女声メイドカフェイベントです。<br/>ご来館前に、営業案内とお願いをご確認ください。</p><div aria-hidden="true" class="guide-flower">❀</div></div>
+<div class="guide-cards">
+<article class="guide-card"><div class="guide-step">STEP 01 <span>✦</span></div><h3>営業日をチェック</h3><p>隔週土曜日の22時から営業予定。最新の開催日や参加方法は、公式の告知をご確認ください。</p></article>
+<article class="guide-card"><div class="guide-step">STEP 02 <span>✦</span></div><h3>ご来館の準備</h3><p>オーナーの「おふぇお」に事前にフレンド申請し、21時55分になったらリクエストインバイトをしてください。おふぇおのアカウントは<a href="https://vrchat.com/home/user/usr_144a896b-712d-4c03-8c2e-8fc2d018acc7" target="_blank" rel="noopener noreferrer">こちら</a>。</p></article>
+<article class="guide-card"><div class="guide-step">STEP 03 <span>✦</span></div><h3>お屋敷のマナー</h3><p>日本語でのコミュニケーションをお願いします。無言の方はペンまたはチャットをご利用ください。アバターは50MB以下でお願いします。無許可の接触・RPの強要・会話を妨げる行為は禁止です。営業中のフレンド申請や不適切なアバターの使用もお控えください。<strong class="rules-more">より詳しくはグループのルールをご覧ください。</strong></p></article>
+</div>
+
+</div>
+</section>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner"><div class="footer-brand"><div class="footer-crown">♛</div><strong>フルリエル</strong><span>MAID CAFE FLEURIEL</span></div><div class="footer-bottom"><span>© FLEURIEL — Demo site</span><a href="#top">ページの先頭へ ↑</a></div></div></footer>
+</div>
+<div class="modal-backdrop" hidden="" id="cast-modal">
+<div aria-labelledby="modal-name" aria-modal="true" class="profile-dialog" role="dialog" tabindex="-1">
+<button aria-label="プロフィールを閉じる" class="modal-close" id="modal-close" type="button">×</button>
+<div class="profile-portrait" id="modal-portrait"><span class="profile-portrait-deco">♛</span><div class="portrait-symbol">❀</div><span class="profile-portrait-label">MAID CAFE FLEURIEL</span></div>
+<div class="profile-details">
+<p class="profile-kicker" id="modal-category">FLEURIEL MAID</p><p class="profile-ornament">✧ ── ❦ ── ✧</p><h2 id="modal-name"></h2><p class="profile-roman" id="modal-roman"></p><p class="profile-message" id="modal-message"></p>
+
+<div class="profile-voice"><p class="voice-label"><span aria-hidden="true">♫</span> VOICE MESSAGE</p><button class="play-voice" id="play-voice" type="button"><span class="play-icon" id="voice-icon">▶</span><span id="voice-button-text">デモ音声を聴く</span><span aria-hidden="true" class="voice-bars"><i></i><i></i><i></i><i></i><i></i></span></button><small id="voice-note">仮の読み上げデモです。本人の声ではありません。</small></div>
+<div class="profile-actions"><button class="profile-favorite" id="modal-favorite" type="button">♡ お気に入りに登録</button><a aria-disabled="true" class="profile-social" href="#casts" id="modal-social">Xを見る ↗</a></div>
+</div>
+</div>
+</div>
+</body>
+</html>
