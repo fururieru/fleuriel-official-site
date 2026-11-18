@@ -10,6 +10,8 @@
 <link href="styles.css" rel="stylesheet"/>
 <script defer="" src="casts.js"></script>
 <script defer="" src="app.js"></script>
+<script defer="" src="site-settings.js"></script>
+<script defer="" src="youtube.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">本文へ移動する</a>
@@ -63,6 +65,27 @@
 </div>
 </div>
 <div aria-hidden="true" class="hero-wave"></div>
+</section>
+<section class="youtube-feature" id="fleuriel-movie" aria-labelledby="youtube-feature-title" hidden>
+  <div class="wrap">
+    <div class="center-heading youtube-feature-head">
+      <p class="section-kicker">FLEURIEL OFFICIAL MOVIE</p>
+      <div class="heading-deco" aria-hidden="true">✦ <span>❦</span> ✦</div>
+      <h2 id="youtube-feature-title">フルリエル公式CM</h2>
+      <p>お屋敷の雰囲気を、動画でもお楽しみください。</p>
+    </div>
+    <div class="youtube-feature-frame">
+      <div class="youtube-feature-stage" id="youtube-feature-stage">
+        <div id="fleuriel-youtube-player" aria-label="フルリエルのYouTube CM"></div>
+        <p class="youtube-feature-fallback" id="youtube-feature-fallback" hidden>動画を表示できない場合は、YouTubeでご覧ください。</p>
+      </div>
+      <div class="youtube-feature-actions">
+        <p class="youtube-feature-note">音に驚かないよう、最初は無音です。</p>
+        <button type="button" class="youtube-feature-audio" id="youtube-feature-audio" aria-pressed="false" disabled>♫ 小音量で聴く（15%）</button>
+      </div>
+      <a class="youtube-feature-link" id="youtube-feature-link" href="https://www.youtube.com/" rel="noopener noreferrer" target="_blank">YouTubeで動画を見る ↗</a>
+    </div>
+  </div>
 </section>
 <section aria-labelledby="about-title" class="introduction" id="about">
 <div class="wrap">
@@ -127,5 +150,6 @@
 </div>
 </div>
 </div>
+
 </body>
 </html>
