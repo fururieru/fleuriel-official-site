@@ -8,6 +8,18 @@
 <meta content="女声メイドカフェ フルリエル。こんなにかわいいのに、ぼくたちみんな男の子です。メイド図鑑、ボイス、営業案内はこちら。" name="description"/>
 <title>女声メイドカフェ フルリエル | 公式サイト試作</title>
 <link href="styles.css" rel="stylesheet"/>
+<style>
+/* フルリエル公式X｜青・白・金のお知らせ欄 */
+.fleuriel-news{padding:74px 0 84px;background:linear-gradient(180deg,#f7fbff 0%,#fffdfa 100%);border-top:1px solid #e9dfce;border-bottom:1px solid #e9dfce}
+.fleuriel-news .center-heading{margin-bottom:26px}
+.fleuriel-news-card{width:min(100%,600px);margin:0 auto;padding:18px 22px 20px;border:1px solid #d9bc86;background:#fff;box-shadow:0 12px 30px rgba(22,63,112,.07);position:relative}
+.fleuriel-news-card:before{content:"";position:absolute;inset:7px;border:1px solid #f0e8d9;pointer-events:none}
+.fleuriel-news-timeline{margin:auto;width:100%;max-width:540px;min-height:100px}
+.fleuriel-news-link{display:block;width:max-content;max-width:100%;margin:17px auto 0;padding:11px 21px;border:1px solid #c1a36b;background:#183f70;color:#fff;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.04em;transition:background .2s,color .2s}
+.fleuriel-news-link:hover,.fleuriel-news-link:focus-visible{background:#fff;color:#183f70}
+.fleuriel-news-fallback{font-size:12px;text-align:center;color:#69819b;line-height:1.8;margin:15px auto 0}
+@media(max-width:700px){.fleuriel-news{padding:52px 0 60px}.fleuriel-news-card{padding:10px 12px 16px}.fleuriel-news-link{font-size:12px}}
+</style>
 <script defer="" src="casts.js"></script>
 <script defer="" src="app.js"></script>
 <script defer="" src="site-settings.js"></script>
@@ -87,6 +99,30 @@
     </div>
   </div>
 </section>
+<section class="fleuriel-news" id="news" aria-labelledby="fleuriel-news-title">
+  <div class="wrap">
+    <div class="center-heading">
+      <p class="section-kicker">LATEST NEWS</p>
+      <div class="heading-deco" aria-hidden="true">✦ <span>❦</span> ✦</div>
+      <h2 id="fleuriel-news-title">フルリエルからのお知らせ</h2>
+      <p>次回の営業情報やイベントのお知らせを、公式Xからお届けします。</p>
+    </div>
+    <div class="fleuriel-news-card">
+      <div class="fleuriel-news-timeline">
+        <a class="twitter-timeline"
+           data-lang="ja"
+           data-height="490"
+           data-theme="light"
+           data-chrome="noheader nofooter noborders"
+           data-dnt="true"
+           href="https://x.com/fleurielle_VRC">フルリエル公式Xの投稿を見る</a>
+      </div>
+      <p class="fleuriel-news-fallback">タイムラインが表示されない場合は、公式Xから最新情報をご確認ください。</p>
+      <a class="fleuriel-news-link" href="https://x.com/fleurielle_VRC" target="_blank" rel="noopener noreferrer">公式Xで最新のお知らせを見る ↗</a>
+    </div>
+  </div>
+</section>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <section aria-labelledby="about-title" class="introduction" id="about">
 <div class="wrap">
 <div class="center-heading"><p class="section-kicker">OUR STORY</p><div class="heading-deco">✦ <span>❦</span> ✦</div><h2 id="about-title">フルリエルとは</h2><p>声も、ときめきも、出会いも。ここだけの特別なひととき。</p></div>
@@ -114,6 +150,7 @@
 </div>
 </div>
 <div aria-live="polite" class="cast-grid" id="cast-grid"></div>
+
 </div>
 </section>
 <section aria-labelledby="voice-title" class="voice-section">
