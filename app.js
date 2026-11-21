@@ -61,17 +61,16 @@
   };
   const stopVoice = () => {
     if (audio) {audio.pause();audio.currentTime=0;audio=null;}
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     playing=false;
     $('#play-voice').classList.remove('is-playing');
     $('#voice-icon').textContent='▶';
-    $('#voice-button-text').textContent=current && safeLocalAudio(current.voice) ? 'ご挨拶を聴く' : 'デモ音声を聴く';
+    $('#voice-button-text').textContent='ご挨拶を聴く';
   };
   const setPlaying = status => {
     playing=status;
     $('#play-voice').classList.toggle('is-playing',status);
     $('#voice-icon').textContent=status?'Ⅱ':'▶';
-    $('#voice-button-text').textContent=status?'再生を止める':(current && safeLocalAudio(current.voice)?'ご挨拶を聴く':'デモ音声を聴く');
+    $('#voice-button-text').textContent=status?'再生を止める':'ご挨拶を聴く';
   };
   const open = id => {
     const c=casts.find(item=>item.id===id); if(!c)return;
@@ -85,8 +84,14 @@
     portrait.className='profile-portrait '+(c.color || 'blue');
     const img=safeLocalImage(c.image);
     portrait.innerHTML=`<span class="profile-portrait-deco" aria-hidden="true">♛</span>${img?`<img src="${e(img)}" alt="${e(c.name)}さんの立ち絵" />`:'<div class="portrait-symbol" aria-hidden="true">❀</div>'}<span class="profile-portrait-label">MAID CAFE FLEURIEL</span>`;
-    $('#voice-note').textContent=safeLocalAudio(c.voice) ? '本人の許可を得て公開されたサンプルボイスです。' : '仮の読み上げデモです。本人の声ではありません。';
-    $('#voice-button-text').textContent=safeLocalAudio(c.voice)?'ご挨拶を聴く':'デモ音声を聴く';
+    // 音声が登録されていないキャストは、ボイスエリアをボタンごと非表示にする。
+    // 非表示にするだけでは、過去に公開した音声ファイル自体は削除されない。
+    const hasVoice=Boolean(safeLocalAudio(c.voice));
+    const voicePanel=$('.profile-voice');
+    voicePanel.hidden=!hasVoice;
+    voicePanel.style.display=hasVoice?'':'none';
+    $('#voice-note').textContent=hasVoice ? '本人の許可を得て公開されたサンプルボイスです。' : '';
+    $('#voice-button-text').textContent='ご挨拶を聴く';
     const social=$('#modal-social');
     const socialUrl=safeSocial(c.x);
     social.setAttribute('aria-disabled',socialUrl?'false':'true');
@@ -109,22 +114,12 @@
     if(!current)return;
     if(playing){stopVoice();return;}
     const src=safeLocalAudio(current.voice);
-    if(src){
-      audio=new Audio(src);
-      audio.onended=()=>setPlaying(false);
-      audio.onerror=()=>{setPlaying(false);$('#voice-note').textContent='音声ファイルを読み込めませんでした。ファイル名と配置を確認してください。';};
-      try {await audio.play();setPlaying(true);} catch(_) {setPlaying(false);$('#voice-note').textContent='再生できませんでした。音声ファイルとブラウザの設定をご確認ください。';}
-      return;
-    }
-    // 試作品限定: 本人の声ではなく、ブラウザ標準の機械読み上げで再生操作を確認
-    if(!('speechSynthesis' in window)){$('#voice-note').textContent='このブラウザではデモ読み上げを利用できません。MP3を設定すると通常再生できます。';return;}
-    window.speechSynthesis.cancel();
-    const u=new SpeechSynthesisUtterance('お帰りなさいませ。フルリエルへようこそ。ご来館を心よりお待ちしております。');
-    u.lang='ja-JP';u.rate=.93;u.pitch=1.08;
-    u.onend=()=>setPlaying(false);
-    u.onerror=()=>setPlaying(false);
-    setPlaying(true);
-    window.speechSynthesis.speak(u);
+    // 音声未登録の場合は再生しない。機械音声デモへの代替も行わない。
+    if(!src)return;
+    audio=new Audio(src);
+    audio.onended=()=>setPlaying(false);
+    audio.onerror=()=>{setPlaying(false);$('#voice-note').textContent='音声ファイルを読み込めませんでした。ファイル名と配置を確認してください。';};
+    try {await audio.play();setPlaying(true);} catch(_) {setPlaying(false);$('#voice-note').textContent='再生できませんでした。音声ファイルとブラウザの設定をご確認ください。';}
   };
   document.querySelectorAll('.segment').forEach(button=>button.addEventListener('click',()=>{
     category=button.dataset.category;
