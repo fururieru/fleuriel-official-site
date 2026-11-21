@@ -2,13 +2,9 @@
   "id": "18b9bb34-333a-5876-a3dc-3a80610128e8",
   "name": "Kihane",
   "reading": "きはね",
-  "roman": "",
   "maid": true,
   "staff": false,
   "visible": true,
-  "message": "自己紹介は準備中です。",
-  "image": "",
-  "voice": "",
-  "x": "",
+  "message": "自己紹介は準備中です。テスト",
   "color": "blue"
 }
